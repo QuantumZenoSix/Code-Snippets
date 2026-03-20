@@ -1,0 +1,72 @@
+//#########################
+// Typography
+//#########################
+
+:root {
+  font-size: 16px;
+}
+
+/* LOCAL FONTS
+  @font-face {
+      font-family: Roboto;
+  //    src: url('../fonts/fontName.ttf');
+    }
+*/
+
+//external font registration
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap");
+$playfair: "Playfair Display SC", serif;
+
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap");
+$nanum: "Nanum Myeongjo", serif;
+
+// typography variables
+$primaryFont: $playfair; //add Font names accordingly
+$secondaryFont: $nanum;
+$tertiaryFont: Font3;
+$regularFont: Font4;
+
+//font Classes
+.primaryFont {
+  font-family: $primaryFont;
+}
+.secondaryFont {
+  font-family: $secondaryFont;
+}
+.tertiaryFont {
+  font-family: $tertiaryFont;
+}
+.regularFont {
+  font-family: $regularFont;
+}
+
+// Mixins
+.primaryHeader {
+  font-family: $primaryFont;
+  font-size: 2rem;
+  letter-spacing: 0.02rem;
+  color: black;
+}
+
+.secondaryHeader {
+  font-family: $secondaryFont;
+  font-size: 1.7rem;
+  letter-spacing: 0.02rem;
+  color: black;
+}
+
+.tertiaryHeader {
+  font-size: 1.1rem;
+  font-family: $subtitleFont;
+  color: rgb(163, 163, 163);
+  font-size: 1rem;
+  padding: 4px;
+  font-weight: 500;
+  letter-spacing: 0.02rem;
+}
+
+.regularText {
+  font-family: regularFont;
+  font-size: 1rem;
+  color: black;
+}

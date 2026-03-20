@@ -1,0 +1,32 @@
+//#########################
+//Media Queries
+//#########################
+
+//Materialize Breakpoints
+$s: 350px;
+$m: 600px;
+$l: 992px;
+$x: 1200px;
+
+//Media query template
+@mixin mq($breakpoint) {
+  @media screen and (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+.example {
+  //do this is general
+  @include mq($s) {
+    //do this when breakpoint is small
+  }
+  @include mq($m) {
+    //do this when breakpoint is medium
+  }
+  @include mq($l) {
+    //do this when breakpoint is large
+  }
+  @include mq($x) {
+    //do this when breakpoint is X--large
+  }
+}

@@ -1,0 +1,17 @@
+/* CSS SHEEST FOR EXPRESS APP -> ASSETS/style.css */
+
+/* RESET */
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+:root{
+    --color: grey;
+}
+
+body{
+    background-color: var(--color);
+    /* background-color: tomato; */
+}
