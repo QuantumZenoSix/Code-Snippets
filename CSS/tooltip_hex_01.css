@@ -1,0 +1,104 @@
+== baxter toltip - baxter spinning out of a single hex ===
+
+<span data-pbx-tooltip="Blak">
+	Some text
+	<span></span>
+</span>
+
+
+*[data-pbx-tooltip]{
+  position:relative;
+  display: inline-block;
+  cursor:pointer;
+}
+
+*[data-pbx-tooltip]::before,*[data-pbx-tooltip]::after{
+  display: inline-block;
+  position: absolute;
+  bottom: 105%;
+  left: 100%;
+  width:300px;
+  padding: 15px;
+  min-height: 120px;
+  opacity:0;
+}
+
+*[data-pbx-tooltip]::before{
+  content: attr(data-pbx-tooltip);
+  background:linear-gradient(to bottom right, black,#000000ba);
+  border-bottom: 1px solid white;
+  color:#f7f7f7cc;
+  border-radius: 4px;
+  border-bottom: 6px outset orange;
+  box-shadow: 0px 2px 1px #ffffffc7, 0px 2px 2px #000000c2;
+  transition: all 300ms ease-in;
+  padding-bottom:30px;
+  z-index:-2;
+}
+
+
+*[data-pbx-tooltip]::after{
+  content: '';
+  background-image: url('../../img/baxter2-466px-transparent.png');
+  background-repeat: no-repeat;
+  background-size: 50px auto;
+  background-position: 98% 85%;
+  filter: drop-shadow(1px 3px 1px #ffa50020);
+  transform: translate(calc(-100% + 50px), 50px) rotate(45deg);
+  transform-origin: center right;
+  transition: all 800ms ease-in-out;
+  transition-delay: 300ms;
+  z-index:-2;
+}
+
+*[data-pbx-tooltip]:hover::before{
+  opacity:1;
+  z-index:9000;
+}
+
+*[data-pbx-tooltip]:hover::after{
+  opacity:0.6;
+  transform: translate(0px, 0px) rotate(0deg);
+  z-index:9000;
+}
+
+*[data-pbx-tooltip] > span{
+  --bgcolor: rgba(255,165,0,0.42);
+  position:absolute;
+  display: inline-block;
+  opacity:1;
+  height: 57px;
+  width: 100px;
+  background: var(--bgcolor);
+  left: 100%;
+  top: 50%;
+  opacity:0;
+  transform: translate(-50%, -50%) rotate(0deg) scale(0.4);
+  transition: all 1000ms ease-in-out;
+}
+
+*[data-pbx-tooltip]:hover > span{
+  transform: translate(0%, -100%) rotate(150deg) scale(1.7);
+  opacity:0.45;
+}
+
+*[data-pbx-tooltip] > span::before{
+  content: '';
+  width: 0;
+  border-bottom: 30px solid var(--bgcolor);
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  position: relative;
+  top: calc(-100% + 6px);
+}
+
+*[data-pbx-tooltip] > span::after{
+  content:'';
+  width: 0;
+  border-top: 30px solid var(--bgcolor);
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  position: relative;
+  top:calc(150% - 1px);
+  left: -100%;
+}

@@ -1,0 +1,66 @@
+
+
+$root = '/home/control-io/www/';
+
+my @dirs  = ($root);
+my @files;
+my $totalsize = 0;
+
+for my $path (@dirs){
+
+
+    opendir ( DIR, $path ) or next;   # skip dirs we can't read
+    
+    while (my $file = readdir DIR) {
+
+        next if $file eq '.' or $file eq '..'; # skip dot files
+        next if -l $path.$file;                # skip sym links
+
+
+        if ( -d $path.$file ) {
+
+            push @dirs, $path.$file.'/';     # add dir to list
+            $relativepath = substr($veeambackupsfolder.$path.$file, length $root);
+            # print "FOUND DIR: ".$file." ------ RELPATH: $relativepath\n";
+            
+        } 
+        else {
+
+            push @files, $path.$file;        # add file to list 
+			$relativepath = substr($veeambackupsfolder.$path, length $root, -1);
+			# print "FOUND FILE: ".$file." ------ RELPATH: $relativepath\n";
+
+			$size = -s _ if -r _ and -f _; $size = sprintf "%.1f", ($size/1024/1024);
+			# WE DONT USE MTIME WITHOUT EPOCH ANYMORE $mtime = scalar localtime((stat(_))[9]);
+			$mtime_epoch = (stat(_))[9];
+			# print "SIZE: $size ------ $mtime ------ $mtime_epoch\n\n";
+			
+			$totalsize = $totalsize + $size;
+			
+
+			
+			# $file = &cleanchar($file);
+			
+
+        }     
+    
+	    # NOW UPDATE THE MEMBERSTORAGEDETAILS.TOTALUSAGE FIELD from $totalsize
+	
+    	$totalsize = sprintf "%.0f", ($totalsize);
+	
+
+	
+	    # print "Size: $totalsize\nDir: $dir\n";	
+	}
+
+    closedir DIR;
+	
+
+	
+}
+
+use Data::Dumper;
+
+
+# print Dumper @dirs;
+print Dumper @files;

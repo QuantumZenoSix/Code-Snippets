@@ -1,0 +1,20 @@
+
+
+
+/* colored dots */
+.success-dot, .danger-dot, .warning-dot{
+  --dot-size:20px;
+  display:inline-block;
+  width:var(--dot-size);
+  height:var(--dot-size);
+  border-radius:50%;
+  vertical-align:bottom;
+  box-shadow:1px 2px 3px #2623237a;
+  background: radial-gradient(circle at 43% 34%, #ffffff03 -25%, var(--dot-color) 43%, hsla(0deg,0%,50%,0.9) 102%);;
+}
+
+.success-dot{--dot-color: #55ce63 !important;}
+.warning-dot{--dot-color: #ffbc34 !important}
+.danger-dot{--dot-color: #f62d51 !important}
+
+.success-dot.md-dot,.warning-dot.md-dot,.danger-dot.md-dot{--dot-size:15px;}

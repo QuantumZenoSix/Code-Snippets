@@ -1,0 +1,1 @@
+C:\Users\Bobby\AppData\Roaming\"Telegram Desktop"\telegram.exe
