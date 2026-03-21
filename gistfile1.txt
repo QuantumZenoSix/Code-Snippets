@@ -1,0 +1,33 @@
+#
+
+# source vimrc file
+vim -c ":source ~/.vimrc"
+
+# Open a file in easy mode 
+vim -y myfile.txt
+
+# Leave easy mode (while in insert mode)
+Ctrl + l
+then 'ZZ' to save changes
+
+# ------------ A vimscript with some helpful defaults -----------------#
+" Turn syntax highlighting on
+syntax on
+
+" Add numbers to each line on the left-hand side.
+set number
+
+" Set shift width to 4 spaces.
+set shiftwidth=4
+
+" Show the mode you are on the last line.
+set showmode
+
+" Enable auto completion menu after pressing TAB.
+set wildmenu
+
+" enable 'easy mode'
+source $VIMRUNTIME/evim.vim
+
+" Ctrl + q to quit Vim (geat for exiting 'easy mode')
+inoremap <c-q> <c-o>:q<cr>
