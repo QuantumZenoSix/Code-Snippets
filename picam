@@ -1,0 +1,3 @@
+libcamera-vid --codec libav -o test1.mkv --rawfull
+
+https://www.raspberrypi.com/documentation/accessories/camera.html
