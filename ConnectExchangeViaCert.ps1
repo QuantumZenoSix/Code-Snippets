@@ -1,0 +1,1 @@
+Connect-ExchangeOnline -CertificateFilePath "C:\Probax2\probaxsaasmodernapponlycertificate.pfx" -CertificatePassword (ConvertTo-SecureString -String "<CERT PASS>" -AsPlainText -Force) -AppID "<Application ID (Client ID)>" -Organization "<ORGNAME>.onmicrosoft.com"
