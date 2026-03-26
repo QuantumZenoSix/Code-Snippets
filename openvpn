@@ -1,0 +1,8 @@
+# Import config file
+openvpn3 config-import --config /home/bobuntu/Downloads/bobby.valenzuela/openvpn_bobby.valenzuela.ovpn 
+
+# Start VPN session (username: bobby.valenzuela | password: google auth code)
+openvpn3 session-start --config /home/bobuntu/Downloads/bobby.valenzuela/openvpn_bobby.valenzuela.ovpn
+
+# View active session
+openvpn3 sessions-list
